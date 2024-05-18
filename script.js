@@ -26,3 +26,7 @@ document.getElementById('search-button').addEventListener('click', function() {
       console.error('Error fetching data:', error);
   });
 });
+
+function displayResults(results) {
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = '';
