@@ -11,3 +11,18 @@ document.getElementById('search-button').addEventListener('click', function() {
       return;
   }
   
+  fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
+  .then(response => {
+      if (!response.ok) {
+          throw new Error('Pokemon not found');
+      }
+      return response.json();
+  })
+  .then(data => {
+      displayResults([data]);
+  })
+  .catch(error => {
+      displayResults([]);
+      console.error('Error fetching data:', error);
+  });
+});
